@@ -1,14 +1,17 @@
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
+import "@mantine/charts/styles.css";
 
 import {
   ColorSchemeScript,
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
+import { Providers } from "@/components/Providers";
 
 export const metadata = {
-  title: "My Mantine app",
-  description: "I have followed setup instructions carefully",
+  title: "Solar Tracker Dashboard",
+  description: "Solar tracker dashboard for monitoring solar panel data",
 };
 
 export default function RootLayout({
@@ -22,8 +25,13 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider defaultColorScheme="dark">{children}</MantineProvider>
+        <Providers>
+          <MantineProvider defaultColorScheme="dark">
+            {children}
+          </MantineProvider>
+        </Providers>
       </body>
     </html>
   );
 }
+
