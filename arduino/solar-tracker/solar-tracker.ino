@@ -9,7 +9,7 @@ const int VERTICAL_LIMIT_HIGH = 140;
 const int VERTICAL_LIMIT_LOW = 40;
 
 int horizontalPos = 0;
-int verticalPos = 60;
+int verticalPos = 40;
 
 const int LDR_BOTTOM_LEFT = A1;
 const int LDR_BOTTOM_RIGHT = A2;
