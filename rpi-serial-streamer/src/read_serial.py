@@ -1,4 +1,5 @@
 import serial
+import time
 
 try:
     with serial.Serial('/dev/ttyUSB0', 9600, timeout=1) as ser:  # Change to ttyACM0 if needed
@@ -8,9 +9,9 @@ try:
             try:
                 if ser.in_waiting > 0:
                     line = ser.readline().decode('utf-8').rstrip()
-                    values = line.split(',')
-                    data_map = {key: int(value) for key, value in (item.split(':') for item in values)}
-                    print(data_map)
+                    key, value = line.split(":")
+                    timestamp = time.time()
+                    print(f"{timestamp} - {key}: {value}")
             except Exception as e:
                 print(f"Error reading serial data: {e}")
 
